@@ -1,2 +1,3 @@
 # Pueblo-UI-Selfbot
-- It become big!
+- Early Build
+- Something must be fixed
