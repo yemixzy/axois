@@ -55,6 +55,7 @@ class Colours:
     Magenta = "\x1b[38;2;255;94;255m"
 
 def new_splash():
+    os.system("cls")
     print(f"""                                           {Colours.White}Welcome to pueblo Selfbot
   {Colours.Magenta}╔════════════════════════╗    ╔══════════════════════════════════════════════╗    ╔════════════════════════╗              
  {Colours.Magenta}╔╝         {Colours.White}Rules          {Colours.Magenta}╚╗  ╔╝                                              ╚╗  ╔╝        {Colours.White}Profile         {Colours.Magenta}╚╗             
