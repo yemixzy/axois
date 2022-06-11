@@ -56,26 +56,23 @@ class Colours:
 
 def new_splash():
     os.system("cls")
-    print(f"""                                           {Colours.White}Welcome to pueblo Selfbot
-  {Colours.Magenta}╔════════════════════════╗    ╔══════════════════════════════════════════════╗    ╔════════════════════════╗              
- {Colours.Magenta}╔╝         {Colours.White}Rules          {Colours.Magenta}╚╗  ╔╝                                              ╚╗  ╔╝        {Colours.White}Profile         {Colours.Magenta}╚╗             
-                            {Colours.Magenta}║  ║    ██████{Colours.White}{Colours.White}╗ {Colours.Magenta}██████{Colours.White}{Colours.White}╗ {Colours.Magenta}████████{Colours.White}{Colours.White}╗{Colours.Magenta}██████{Colours.White}{Colours.White}╗  {Colours.Magenta}█████{Colours.White}{Colours.White}╗    {Colours.Magenta}║  ║                                     
-        {Colours.White}No exe {Colours.Magenta}Sharing      {Colours.Magenta}║  ║   ██{Colours.White}╔════╝{Colours.Magenta}██{Colours.White}╔═══{Colours.Magenta}██{Colours.White}╗╚══{Colours.Magenta}██{Colours.White}╔══╝{Colours.Magenta}██{Colours.White}╔══{Colours.Magenta}██{Colours.White}╗{Colours.Magenta}██{Colours.White}╔══{Colours.Magenta}██{Colours.White}╗   {Colours.Magenta}║  ║   Username: {Colours.White}{str(bot.user)}                                 
-     {Colours.White}No {Colours.Magenta}tampering {Colours.White}allowed   {Colours.Magenta}╚══╝   {Colours.Magenta}██{Colours.White}║     {Colours.Magenta}██{Colours.White}║   {Colours.Magenta}██{Colours.White}║   {Colours.Magenta}██{Colours.White}║   {Colours.Magenta}██████{Colours.White}╔╝{Colours.Magenta}███████{Colours.White}║   {Colours.Magenta}╚══╝   Friends: {Colours.White}{len(bot.user.friends)}                                   
-      {Colours.White}No {Colours.Magenta}account {Colours.White}sharing    {Colours.Magenta}{Colours.Magenta}╔══╗   {Colours.Magenta}{Colours.Magenta}██{Colours.White}║     {Colours.Magenta}{Colours.Magenta}██{Colours.White}║   {Colours.Magenta}{Colours.Magenta}██{Colours.White}║   {Colours.Magenta}{Colours.Magenta}██{Colours.White}║   {Colours.Magenta}{Colours.Magenta}██{Colours.White}╔══{Colours.Magenta}{Colours.Magenta}██{Colours.White}╗{Colours.Magenta}{Colours.Magenta}██{Colours.White}╔══{Colours.Magenta}{Colours.Magenta}██{Colours.White}║   {Colours.Magenta}{Colours.Magenta}╔══╗   Guilds: {Colours.White}{len(bot.guilds)}                                     
-                            {Colours.Magenta}║  ║   ╚{Colours.Magenta}██████{Colours.White}╗╚{Colours.Magenta}██████{Colours.White}╔╝   {Colours.Magenta}██{Colours.White}║   {Colours.Magenta}██{Colours.White}║  {Colours.Magenta}██{Colours.White}║{Colours.Magenta}██{Colours.White}║  {Colours.Magenta}██{Colours.White}║   {Colours.Magenta}║  ║   Prefix: {Colours.White}{config['prefix']}                                  
-    {Colours.Magenta}discord.gg/{Colours.White}fortnite   {Colours.Magenta}║  ║    {Colours.White}╚═════╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝   {Colours.Magenta}║  ║                                     
- {Colours.Magenta}╚╗                        ╔╝  ╚╗                                              ╔╝  ╚╗                        ╔╝             
-  {Colours.Magenta}╚════════════════════════╝    ╚═════════════════════╗ ╔══════════════════════╝    ╚════════════════════════╝                         
-                                                      {Colours.Magenta}║ ║  
-                         {Colours.Magenta}╔════════════════════════════╝ ╚════════════════════════════╗
-                        {Colours.Magenta}╔╝                       {Colours.White}Pueblo Selfbot                      {Colours.Magenta}╚╗
-                                                 
-                                {Colours.Magenta}Nitro Sniper: {Colours.White}True           {Colours.Magenta}Giveaway Joiner: {Colours.White}True
-                                {Colours.Magenta}Commands: {Colours.White}{len(bot.commands)}                {Colours.Magenta}Delete Timer: {Colours.White}{config['deletetime']} 
-                                {Colours.Magenta}Theme: {Colours.White}{config['theme']['name']}               {Colours.Magenta}Version: {Colours.White}{version}
-                        {Colours.Magenta}╚╗                                                           ╔╝
-                        {Colours.Magenta} ╚═══════════════════════════════════════════════════════════╝
+    print(f"""
+                                                   {Colours.White}Welcome to pueblo Selfbot
+{Colours.Magenta}╔════════════════════════════════════════════════════════════╗
+	                {Colours.White}Pueblo Selfbot
+    {Colours.Magenta}Nitro Sniper: {Colours.White}True              {Colours.Magenta}Giveaway Joiner: {Colours.White}True
+    {Colours.Magenta}Commands: {Colours.White}{len(bot.commands)}                     {Colours.Magenta}Delete Timer: {Colours.White}{config['deletetime']} 
+    {Colours.Magenta}Theme: {Colours.White}{config['theme']['name']}                  {Colours.Magenta}Version: {Colours.White}{version}
+    
+{Colours.Magenta}╚════════════════════════════╗ ╔════════════════════════════╝
+{Colours.Magenta}              ╔══════════════╝ ╚═════════════╗
+                            {Colours.White}Profile
+                {Colours.Magenta}Username: {Colours.White}{str(bot.user.name + bot.user.discriminator)}
+                {Colours.Magenta}Friends: {Colours.White}{len(bot.user.friends)}
+                {Colours.Magenta}Guilds: {Colours.White}{len(bot.guilds)}
+                {Colours.Magenta}Prefix: {Colours.White}{config['prefix']}
+
+              {Colours.Magenta}╚══════════════════════════════╝
 """)
 
 prefix = config['prefix']
