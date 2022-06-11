@@ -1,2 +1,19 @@
 
 build.bat
+build/PuebloUI/Analysis-00.toc
+build/PuebloUI/base_library.zip
+build/PuebloUI/EXE-00.toc
+build/PuebloUI/PKG-00.toc
+build/PuebloUI/PuebloUI.exe.manifest
+build/PuebloUI/PuebloUI.pkg
+build/PuebloUI/PYZ-00.pyz
+build/PuebloUI/PYZ-00.toc
+build/PuebloUI/Tree-00.toc
+build/PuebloUI/Tree-01.toc
+build/PuebloUI/Tree-02.toc
+build/PuebloUI/warn-PuebloUI.txt
+build/PuebloUI/xref-PuebloUI.html
+dist/A.ico
+dist/config.json
+dist/PuebloUI.exe
+PuebloUI.spec
