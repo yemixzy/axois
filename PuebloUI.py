@@ -55,7 +55,7 @@ class Colours:
     Magenta = "\x1b[38;2;255;94;255m"
 
 def new_splash():
-    print(f"""                                           {Colours.White}Welcome to Cotra Selfbot
+    print(f"""                                           {Colours.White}Welcome to pueblo Selfbot
   {Colours.Magenta}╔════════════════════════╗    ╔══════════════════════════════════════════════╗    ╔════════════════════════╗              
  {Colours.Magenta}╔╝         {Colours.White}Rules          {Colours.Magenta}╚╗  ╔╝                                              ╚╗  ╔╝        {Colours.White}Profile         {Colours.Magenta}╚╗             
                             {Colours.Magenta}║  ║    ██████{Colours.White}{Colours.White}╗ {Colours.Magenta}██████{Colours.White}{Colours.White}╗ {Colours.Magenta}████████{Colours.White}{Colours.White}╗{Colours.Magenta}██████{Colours.White}{Colours.White}╗  {Colours.Magenta}█████{Colours.White}{Colours.White}╗    {Colours.Magenta}║  ║                                     
@@ -84,12 +84,12 @@ ids = "584879487850643456", "701792352301350973"
 cmds = "201"
 bot = commands.Bot(command_prefix=prefix, self_bot=True)
 toaster = ToastNotifier()
-toaster.show_toast("Cotra Selfbot",
+toaster.show_toast("Pueblo Selfbot",
                    "Is now loading...",
                    icon_path="A.ico",
                    duration=10)
 
-toaster.show_toast("Cotra Selfbot",
+toaster.show_toast("Pueblo Selfbot",
                    "Is now loaded. Please wait 5 seconds",
                    icon_path="A.ico",
                    duration=5,
@@ -212,7 +212,7 @@ async def on_message(message):
 
 @bot.event
 async def on_connect():
-    title = ctypes.windll.kernel32.SetConsoleTitleW(f"Cotra Selfbot | Version: [{version}]  | Commands: [{len(bot.commands)}] | Theme: {config['theme']['name']}") 
+    title = ctypes.windll.kernel32.SetConsoleTitleW(f"pueblo Selfbot | Version: [{version}]  | Commands: [{len(bot.commands)}] | Theme: {config['theme']['name']}") 
     time.sleep(1)
     title
     new_splash()
@@ -248,7 +248,7 @@ ritchy_pres = config['rpc']
 if ritchy_pres == True:
     rpc = Presence("926564240259711107")
     rpc.connect()
-    rpc.update(state="Using Cotra Selfbot",large_image="uwu",start=time.time(),large_text=f"Logged in as : GET FUCKING LEAKED YOU CUNT",buttons=[{"label": "Discord", "url": "https://discord.gg/6EzTsPnbbA"}],small_image="uwu",small_text=f"Version : [{version}]")
+    rpc.update(state="Using pueblo Selfbot",large_image="uwu",start=time.time(),large_text=f"Logged in as : GET FUCKING LEAKED YOU CUNT",buttons=[{"label": "Discord", "url": "https://discord.gg/6EzTsPnbbA"}],small_image="uwu",small_text=f"Version : [{version}]")
 
 
 def color_fade(fade_ticks, *colors: list, repeat=False):
@@ -569,8 +569,8 @@ async def text(ctx, category=None):
 ║   [{bot.command_prefix}]spam »» Spams message                                           ║
 ║   [{bot.command_prefix}]ascii »» ascii to text                                          ║
 ║   [{bot.command_prefix}]rv »» reverses text                                             ║
-║   [{bot.command_prefix}]encrypt »» encrypts message with cotra                          ║
-║   [{bot.command_prefix}]decrypt »» decrypts message with cotra                          ║
+║   [{bot.command_prefix}]encrypt »» encrypts message with pueblo                          ║
+║   [{bot.command_prefix}]decrypt »» decrypts message with pueblo                          ║
 ║   [{bot.command_prefix}]gp »» ghost pings user                                          ║
 ║   [{bot.command_prefix}]shrek »» what are ye doin in ma swamp                           ║
 ║   [{bot.command_prefix}]boldunderline »» bold underline                                 ║
@@ -663,7 +663,7 @@ async def promo(ctx, category=None):
 ║   [{bot.command_prefix}]Ragnarok »» Official Reseller                                     ║
 ║   [{bot.command_prefix}]mysite »» webite                                                  ║
 ║   [{bot.command_prefix}]cactus »» Official Reseller                                       ║
-║   [{bot.command_prefix}]buy »» BUY COTRA NOW                                              ║
+║   [{bot.command_prefix}]buy »» BUY pueblo NOW                                              ║
 ║   [{bot.command_prefix}]complex »» Official Reseller                                      ║
 ║   [{bot.command_prefix}]flop »» Official Reseller                                         ║
 ║   [{bot.command_prefix}]pathetic »» Official Reseller                                     ║
@@ -1033,7 +1033,7 @@ async def uptime(ctx):
     uptime = str(uptime).split('.')[0]
     msg = f"""
 ```ini
-[Cotra UI has been Online:]
+[pueblo UI has been Online:]
 {f''+uptime+''} 
 ```
     """
@@ -1370,7 +1370,7 @@ async def massgc(ctx,userid1,times):
         createdserver = response.json()
         for x in createdserver["recipients"]:
             if userid1 != x["id"]:
-                cotra=x["id"]
+                pueblo=x["id"]
 
         headers = {
             'authority': 'discord.com',
@@ -1388,10 +1388,10 @@ async def massgc(ctx,userid1,times):
             'cookie': '__dcfduid=0f52e1903dce11eca260a166ca1ce2a2; __sdcfduid=0f52e1913dce11eca260a166ca1ce2a26685cf1817e5918f525ccb544c7b38dd469403cf86d6082435cd8cbb46d620ef; __stripe_mid=b0aea78a-f66f-4067-b204-0a7ee4db6acaf58e16',
         }
 
-        response = requests.delete(f'https://discord.com/api/v9/channels/{str(createdserver["id"])}/recipients/{cotra}', headers=headers)
-        #print(cotra)
+        response = requests.delete(f'https://discord.com/api/v9/channels/{str(createdserver["id"])}/recipients/{pueblo}', headers=headers)
+        #print(pueblo)
         #print(response.text)
-        choices = ["haha lol","bitchnigga","fatty","https://www.cotra.xyz","U suck","die bitch","CotraUI Selfbot","You smell","fuck you","Get Creampied","https://www.pornhub.com/gay"]
+        choices = ["haha lol","bitchnigga","fatty","https://www.pueblo.xyz","U suck","die bitch","puebloUI Selfbot","You smell","fuck you","Get Creampied","https://www.pornhub.com/gay"]
         headers = {
             'authority': 'discord.com',
             'x-super-properties': 'eyJvcyI6IldpbmRvd3MiLCJicm93c2VyIjoiRGlzY29yZCBDbGllbnQiLCJyZWxlYXNlX2NoYW5uZWwiOiJzdGFibGUiLCJjbGllbnRfdmVyc2lvbiI6IjEuMC45MDAzIiwib3NfdmVyc2lvbiI6IjEwLjAuMjIwMDAiLCJvc19hcmNoIjoieDY0Iiwic3lzdGVtX2xvY2FsZSI6ImVuLUdCIiwiY2xpZW50X2J1aWxkX251bWJlciI6MTA0Mjc2LCJjbGllbnRfZXZlbnRfc291cmNlIjpudWxsfQ==',
@@ -1480,12 +1480,12 @@ async def mysite(ctx,):
     await ctx.message.delete()
     msg = f"""
 ```ini
-[CotraUI Website]  
+[puebloUI Website]  
 ```
     """
 
     await ctx.send(msg,delete_after=config['deletetime'])
-    await ctx.send("https://www.cotra.xyz")
+    await ctx.send("https://www.pueblo.xyz")
     print(Colours.Magenta+"[Command] <>MySite<>"+Colours.White)
 
 @bot.command()
@@ -1760,7 +1760,7 @@ async def restart(ctx):
                 [RESTARTING]         
     ║═══════════════════════════════════║
 
-      COTRA IS RESTARTING PLEASE WAIT...
+      pueblo IS RESTARTING PLEASE WAIT...
 
     ╚═══════════════════════════════════╝
     ```
@@ -1923,9 +1923,9 @@ async def info(ctx,):
     msg = f"""
     ```ini
     ╔═══════════════════════════════════╗
-    ║         [Cotra UI Info]           ║
+    ║         [pueblo UI Info]           ║
     ║═══════════════════════════════════║
-    ║        Made by [cotra#0001]       ║
+    ║        Made by [pueblo#0001]       ║
     ║═══════════════════════════════════║ 
       Total commands: {totalcommands}               
       Prefix: [{bot.command_prefix}]                         
@@ -1981,14 +1981,14 @@ async def encrypt(ctx, *, text: str):
         "-" : "ልዪፕዐር",
         "." : "ↄoTᴙA",
         "?" : "£$R%T:$£PT",
-        "!" : "𝐜𝐨𝐭𝐫𝐚",
+        "!" : "pueblo",
         "/" : "???????",
         "£" : "ȼøŧɍȺ",
         "$" : "ᶜᵒᵗʳᵃ",
         "," : "ዪልኗክልዪዐጕ",
         "_" : " ",
         ":" : "???!??!sped!?!?!",
-        "#" : "???!??!cotra!?!?!"
+        "#" : "???!??!pueblo!?!?!"
     }
     cipher = ''
     for letter in text:
@@ -2000,7 +2000,7 @@ async def encrypt(ctx, *, text: str):
     msg = f"""
 ```ini
 [ENCRYPTED!!]
-Below will be your encrypted message (NO ONE CAN CRACK THIS APART FROM COTRA USERS)
+Below will be your encrypted message (NO ONE CAN CRACK THIS APART FROM pueblo USERS)
 Encrypted [{cipher}]
     ```
     """
@@ -2050,14 +2050,14 @@ async def decrypt(ctx, *, text: str):
         "-" : "ልዪፕዐር",
         "." : "ↄoTᴙA",
         "?" : "£$R%T:$£PT",
-        "!" : "𝐜𝐨𝐭𝐫𝐚",
+        "!" : "pueblo",
         "/" : "???????",
         "£" : "ȼøŧɍȺ",
         "$" : "ᶜᵒᵗʳᵃ",
         "," : "ዪልኗክልዪዐጕ",
         "_" : " ",
         ":" : "???!??!sped!?!?!",
-        "#" : "???!??!cotra!?!?!"
+        "#" : "???!??!pueblo!?!?!"
     }
     text += ' '
     decipher = ''
@@ -2164,7 +2164,7 @@ async def cactus(ctx):
     ╔═══════════════════════════════════╗
               [Cactus Reselling]         
     ║═══════════════════════════════════║
-           Official Reseller of COTRA
+           Official Reseller of pueblo
          
          https://CactusReselling.com
          
@@ -2188,7 +2188,7 @@ async def troop(ctx):
     ╔═══════════════════════════════════╗
                 [Troop keys]         
     ║═══════════════════════════════════║
-          Official Reseller of COTRA
+          Official Reseller of pueblo
          
             https://troopkeys.cf/
          
@@ -2212,7 +2212,7 @@ async def pathetic(ctx):
     ╔═══════════════════════════════════╗
                  [Pathetic]         
     ║═══════════════════════════════════║
-          Official Reseller of COTRA
+          Official Reseller of pueblo
          
             https://lamahook.xyz/
          
@@ -2233,7 +2233,7 @@ async def complex(ctx):
     ╔═══════════════════════════════════╗
              [Complex Services]         
     ║═══════════════════════════════════║
-          Official Reseller of COTRA
+          Official Reseller of pueblo
          
          https://discord.gg/RXTf4f7bTc
 
@@ -2252,7 +2252,7 @@ async def flop(ctx):
     ╔═══════════════════════════════════╗
                     [FLOP]         
     ║═══════════════════════════════════║
-          Official Reseller of COTRA
+          Official Reseller of pueblo
          
          https://discord.gg/4GzYd6AuGk
 
@@ -2527,7 +2527,7 @@ async def gaypfp(ctx, member=None):
             
             await trigSession.close()
             
-            await ctx.send(file=discord.File(imageData, 'CotraUI.gif'))
+            await ctx.send(file=discord.File(imageData, 'puebloUI.gif'))
 
 @bot.command()
 async def trap(ctx, member=None):
@@ -2543,7 +2543,7 @@ async def trap(ctx, member=None):
             
             await trigSession.close()
             
-            await ctx.send(file=discord.File(imageData, 'CotraUI.gif'))
+            await ctx.send(file=discord.File(imageData, 'puebloUI.gif'))
 
 @bot.command()
 async def triggered(ctx, member=None):
@@ -2559,7 +2559,7 @@ async def triggered(ctx, member=None):
             
             await trigSession.close()
             
-            await ctx.send(file=discord.File(imageData, 'CotraUI.gif'))
+            await ctx.send(file=discord.File(imageData, 'puebloUI.gif'))
 
 @bot.command()
 async def passed(ctx, member=None):
@@ -2575,7 +2575,7 @@ async def passed(ctx, member=None):
             
             await trigSession.close()
             
-            await ctx.send(file=discord.File(imageData, 'CotraUI.gif'))
+            await ctx.send(file=discord.File(imageData, 'puebloUI.gif'))
 
 @bot.command()
 async def jail(ctx, member=None):
@@ -2591,7 +2591,7 @@ async def jail(ctx, member=None):
             
             await trigSession.close()
             
-            await ctx.send(file=discord.File(imageData, 'CotraUI.gif'))
+            await ctx.send(file=discord.File(imageData, 'puebloUI.gif'))
 
 @bot.command()
 async def wasted(ctx, member=None):
@@ -2608,7 +2608,7 @@ async def wasted(ctx, member=None):
             
             await trigSession.close()
             
-            await ctx.send(file=discord.File(imageData, 'CotraUI.gif'))
+            await ctx.send(file=discord.File(imageData, 'puebloUI.gif'))
 
 @bot.command()
 async def lolice(ctx, member=None):
@@ -2624,7 +2624,7 @@ async def lolice(ctx, member=None):
             
             await trigSession.close()
             
-            await ctx.send(file=discord.File(imageData, 'CotraUI.gif'))
+            await ctx.send(file=discord.File(imageData, 'puebloUI.gif'))
 
 @bot.command()
 async def horny(ctx, member=None):
@@ -2640,7 +2640,7 @@ async def horny(ctx, member=None):
             
             await trigSession.close()
             
-            await ctx.send(file=discord.File(imageData, 'CotraUI.gif'))
+            await ctx.send(file=discord.File(imageData, 'puebloUI.gif'))
 
 @bot.command()
 async def pixel(ctx, member=None):
@@ -2656,7 +2656,7 @@ async def pixel(ctx, member=None):
             
             await trigSession.close()
             
-            await ctx.send(file=discord.File(imageData, 'CotraUI.gif'))
+            await ctx.send(file=discord.File(imageData, 'puebloUI.gif'))
 
 @bot.command()
 async def clyde(ctx,*, msg):
@@ -2823,9 +2823,9 @@ async def buy(ctx):
     ╔══════════════════════════════════════════╗
     ║               [BUY INFO]                 ║
     ║══════════════════════════════════════════║
-    ║ Website: https://www.cotra.xyz           ║              
-    ║ Discord: https://discord.gg/cotraui      ║  
-    ║ Owner: [cotra#0001 | 584879487850643456] ║   
+    ║ Website: https://www.pueblo.xyz           ║              
+    ║ Discord: https://discord.gg/puebloui      ║  
+    ║ Owner: [pueblo#0001 | 584879487850643456] ║   
     ║                                          ║
     ║ Create a ticket to buy in [#buy]         ║ 
     ╚══════════════════════════════════════════╝
