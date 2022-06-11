@@ -1622,20 +1622,18 @@ async def animnick_error(ctx,error):
 async def on_command_error(ctx, error:commands.CommandError):
         if isinstance(error, commands.CommandNotFound):
             await ctx.message.delete()
-            cmd = ctx.message.content.split()[0]
-            cmd = cmd.lstrip(prefix)
         msg = f"""
     ```css
     ╔═══════════════════════════════════╗
               [Critical ERROR]         
     ║═══════════════════════════════════║
-      The command {cmd} Does not exist  
+      The command does not exist  
     ╚═══════════════════════════════════╝
     ```
     """
 
         await ctx.send(msg,delete_after=config['deletetime'])
-        print(Fore.RED+f"[SYSTEM] The Command {cmd} Does not exist"+Fore.RESET)
+        print(Fore.RED+f"[SYSTEM] The Command does not exist"+Fore.RESET)
 
 @yiff.error
 async def yiff_error(ctx,error):
