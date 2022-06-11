@@ -63,23 +63,22 @@ def new_splash():
      {Colours.White}No {Colours.Magenta}tampering {Colours.White}allowed   {Colours.Magenta}╚══╝   {Colours.Magenta}██{Colours.White}║     {Colours.Magenta}██{Colours.White}║   {Colours.Magenta}██{Colours.White}║   {Colours.Magenta}██{Colours.White}║   {Colours.Magenta}██████{Colours.White}╔╝{Colours.Magenta}███████{Colours.White}║   {Colours.Magenta}╚══╝   Friends: {Colours.White}{len(bot.user.friends)}                                   
       {Colours.White}No {Colours.Magenta}account {Colours.White}sharing    {Colours.Magenta}{Colours.Magenta}╔══╗   {Colours.Magenta}{Colours.Magenta}██{Colours.White}║     {Colours.Magenta}{Colours.Magenta}██{Colours.White}║   {Colours.Magenta}{Colours.Magenta}██{Colours.White}║   {Colours.Magenta}{Colours.Magenta}██{Colours.White}║   {Colours.Magenta}{Colours.Magenta}██{Colours.White}╔══{Colours.Magenta}{Colours.Magenta}██{Colours.White}╗{Colours.Magenta}{Colours.Magenta}██{Colours.White}╔══{Colours.Magenta}{Colours.Magenta}██{Colours.White}║   {Colours.Magenta}{Colours.Magenta}╔══╗   Guilds: {Colours.White}{len(bot.guilds)}                                     
                             {Colours.Magenta}║  ║   ╚{Colours.Magenta}██████{Colours.White}╗╚{Colours.Magenta}██████{Colours.White}╔╝   {Colours.Magenta}██{Colours.White}║   {Colours.Magenta}██{Colours.White}║  {Colours.Magenta}██{Colours.White}║{Colours.Magenta}██{Colours.White}║  {Colours.Magenta}██{Colours.White}║   {Colours.Magenta}║  ║   Prefix: {Colours.White}{config['prefix']}                                  
-    {Colours.Magenta}discord.gg/{Colours.White}j8VV2RzKs3   {Colours.Magenta}║  ║    {Colours.White}╚═════╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝   {Colours.Magenta}║  ║                                     
+    {Colours.Magenta}discord.gg/{Colours.White}fortnite   {Colours.Magenta}║  ║    {Colours.White}╚═════╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝   {Colours.Magenta}║  ║                                     
  {Colours.Magenta}╚╗                        ╔╝  ╚╗                                              ╔╝  ╚╗                        ╔╝             
   {Colours.Magenta}╚════════════════════════╝    ╚═════════════════════╗ ╔══════════════════════╝    ╚════════════════════════╝                         
                                                       {Colours.Magenta}║ ║  
                          {Colours.Magenta}╔════════════════════════════╝ ╚════════════════════════════╗
-                        {Colours.Magenta}╔╝                          {Colours.White}Selfbot                          {Colours.Magenta}╚╗
+                        {Colours.Magenta}╔╝                       {Colours.White}Pueblo Selfbot                      {Colours.Magenta}╚╗
                                                  
                                 {Colours.Magenta}Nitro Sniper: {Colours.White}True           {Colours.Magenta}Giveaway Joiner: {Colours.White}True
                                 {Colours.Magenta}Commands: {Colours.White}{len(bot.commands)}                {Colours.Magenta}Delete Timer: {Colours.White}{config['deletetime']} 
-                                {Colours.Magenta}Theme: {Colours.White}{config['theme']['name']}              {Colours.Magenta}Version: {Colours.White}{version}
+                                {Colours.Magenta}Theme: {Colours.White}{config['theme']['name']}               {Colours.Magenta}Version: {Colours.White}{version}
                         {Colours.Magenta}╚╗                                                           ╔╝
                         {Colours.Magenta} ╚═══════════════════════════════════════════════════════════╝
 """)
 
 prefix = config['prefix']
-version = "4.8"
-dev = "4.9"
+version = "1.3.0"
 ids = "584879487850643456", "701792352301350973"
 cmds = "201"
 bot = commands.Bot(command_prefix=prefix, self_bot=True)
@@ -1615,25 +1614,6 @@ async def animnick_error(ctx,error):
 
     await ctx.send(msg,delete_after=config['deletetime'])
     print(Fore.RED+f"[SYSTEM] Animnick error!"+Fore.RESET)
-
-
-
-@bot.event
-async def on_command_error(ctx, error:commands.CommandError):
-        if isinstance(error, commands.CommandNotFound):
-            await ctx.message.delete()
-        msg = f"""
-    ```css
-    ╔═══════════════════════════════════╗
-              [Critical ERROR]         
-    ║═══════════════════════════════════║
-      The command does not exist  
-    ╚═══════════════════════════════════╝
-    ```
-    """
-
-        await ctx.send(msg,delete_after=config['deletetime'])
-        print(Fore.RED+f"[SYSTEM] The Command does not exist"+Fore.RESET)
 
 @yiff.error
 async def yiff_error(ctx,error):
@@ -3457,4 +3437,19 @@ def Init():
         sys.exit
         python = sys.executable
         os.execl(python, python, * sys.argv)
-Init()
+
+def check():
+    url = "https://gist.githubusercontent.com/yemix/9088d9e2f01fdf8180b179ea3c4cbc99/raw/acba58666659a26c9fa42a4fb94182af38ee83de/pueblo-ui-selfbot.json"
+
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36"
+    }
+
+    r = requests.get(url, headers=headers).json()['version']
+    if r == version:
+        print(Fore.RED + f"[SYSTEM] " + Fore.WHITE + "Selfbot is up to date" + Fore.RESET)
+        Init()
+    else:
+        print(Fore.RED + f"[SYSTEM] " + Fore.WHITE +  "UPDATE AVAILABLE" + Fore.RESET)
+
+check()
