@@ -6,7 +6,7 @@
 - Simple Selfbot
 
 ## Download
-- [Latest](https://github.com/yemixzy/pueblo-ui/releases/tag/1.3.0)
+- [Latest](https://github.com/yemixzy/pueblo-ui/releases/latest)
 - [Releases](https://github.com/yemixzy/pueblo-ui/releases)
 
 ## Integrate Checks
