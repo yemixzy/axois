@@ -14,7 +14,7 @@ data = json.load(open('config.json', encoding='utf-8'))
 
 usertoken = data['bottoken']
 alttoken = data['alttoken']
-maintoken = data['maintoken']
+maintoken = data['token']
 discord_password = data['password']
 BOT_PREFIX = data['prefix']
 stream_url = data['stream_url']
