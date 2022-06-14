@@ -1,7 +1,7 @@
 {
     "token": "Njk5NDA3NDU1OTI2NDg1MDY0.Gb4cvm.JcsA2a5TMhMfARJ-YmePM0mQhYtnMm-mqfx-mE",
-	"password": "H2ODK37.b",
-	"prefix": ".",
+    "password": "H2ODK37.b",
+    "prefix": ".",
 	
     "bottoken": "",
     "bot": false,
@@ -9,10 +9,10 @@
     "alttoken": "",
     "alt": false,
 	
-	"stream_url": "",
+    "stream_url": "",
 	
-	"nitro_sniper": false,
-	"nitro_webhook_url": "",
+    "nitro_sniper": false,
+    "nitro_webhook_url": "",
 	
     "rpc": true, 
     "deletetime": 50000, 
@@ -21,7 +21,7 @@
         "thumbnail": "https://cdn.nekos.life/gasm/439736160286146561.png", 
         "embed_color": "#ee00ff", 
         "title": "Pueblo Selfbot",
-		"text": "Extremely Rare",
+        "text": "Extremely Rare",
         "footer_img": "https://cdn.nekos.life/gasm/397584182454255618.png", 
         "footer_text": "https://hanime.tv"
     } 
