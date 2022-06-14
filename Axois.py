@@ -95,7 +95,7 @@ async def on_ready(self):
 async def about(ctx):
     embed = discord.Embed(title="About the bot", description="Its a little Selfbot", color=0x00ffff)
     embed.add_field(name="Created with:", value="discord.py-self", inline=False)
-    embed.add_field(name="Created by:", value="pueblo#0001", inline=False)
+    embed.add_field(name="Created by:", value="axois#0001", inline=False)
     await ctx.channel.send(embed=embed)
 
 @bot.command()
@@ -674,8 +674,8 @@ async def giveaway(ctx, time: int, winners: int, *, prize: str):
             embed.add_field(name=f'__⏱ Time in Seconds__', value=f'{time}s', inline=False)
             embed.add_field(name=f'__🎁 Winners__', value=f'{winners}', inline=False)
             embed.set_thumbnail(url='')
-            embed.set_footer(text='Pueblo Test Client', icon_url='')
-            embed.set_author(name='pueblo#0001', icon_url='', url='')
+            embed.set_footer(text='axois Test Client', icon_url='')
+            embed.set_author(name='axois#0001', icon_url='', url='')
             msg = await ctx.send(embed=embed)
             giveaway_msg_id = msg.id
             await msg.add_reaction('🎉')
