@@ -87,9 +87,9 @@ def drone_startup(pos, alttoken):
     drone.run(alttoken)
 
 @bot.event
-async def on_ready(self):
+async def on_ready():
     os.system('')
-    print("Logged in as: " + self.user + "\n")
+    print("Logged in as: " + bot.user.name + "#" + bot.user.discriminator + "\n")
 
 @bot.command()
 async def about(ctx):
