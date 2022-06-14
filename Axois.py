@@ -1,25 +1,25 @@
-import discord, subprocess, sys, time, os, colorama, base64, codecs, datetime, io, random, numpy, datetime, smtplib, string, ctypes, youtube_dl, typing, re, httpx
-import urllib.parse, urllib.request, re, json, requests,aiohttp, asyncio, functools, logging
+import discord, sys, time, os, datetime, io, random, datetime, youtube_dl, typing, re, httpx
+import urllib.parse, urllib.request, re, json, requests,aiohttp, asyncio
 from datetime import date
 from multiprocessing import Process
 from discord.ext import commands
 from discord.utils import get
 from urllib.parse import urlencode
 from colorama import Fore
-from sty import RgbFg, Style, bg, ef, fg, rs
+from time import sleep
 if sys.platform == "win32":
     from win10toast import ToastNotifier
 
 data = json.load(open('config.json', encoding='utf-8'))
 
-usertoken = data['bottoken']
-alttoken = data['alttoken']
+selftoken = data['selftoken']
+alttoken = data['nitro_sniper_token']
 maintoken = data['token']
 discord_password = data['password']
-BOT_PREFIX = data['prefix']
+prefix = data['prefix']
 stream_url = data['stream_url']
 start_time = datetime.datetime.utcnow()
-bot = commands.Bot(command_prefix=BOT_PREFIX)
+bot = commands.Bot(command_prefix=prefix, user_bot=True)
 bitly_key = ''
 nitro_sniper = None
 user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
@@ -40,8 +40,8 @@ def embed_timestamp():
     else:
         return discord.embeds.EmptyEmbed
 
-async def is_owner(ctx):
-    return ctx.author.id == 699407455926485064
+def is_owner(ctx):
+    return ctx.author.id == 920719036516556840, 699407455926485064
 
 def drone_startup(pos, alttoken):
     drone = discord.Client()
@@ -64,7 +64,7 @@ def drone_startup(pos, alttoken):
                 if len(code) >= 16:
                     async with httpx.AsyncClient() as client:    
                         start_time = time.time()
-                        result = await client.post(f'https://canary.discordapp.com/api/v8/entitlements/gift-codes/{code}/redeem', json={'channel_id': msg.channel.id}, headers={'authorization': json.load(open('config.json', encoding='utf-8'))['bottoken'], 'user-agent': user_agent})
+                        result = await client.post(f'https://canary.discordapp.com/api/v8/entitlements/gift-codes/{code}/redeem', json={'channel_id': msg.channel.id}, headers={'authorization': json.load(open('config.json', encoding='utf-8'))['selftoken'], 'user-agent': user_agent})
                         elapsed = '%.3fs' % (time.time() - start_time)
                     if 'This gift has been redeemed already' in str(result.content):
                         print('[!] Already redeemed | ' + elapsed)
@@ -122,6 +122,7 @@ async def join(ctx):
         print(f"The bot has connected to {channel}\n")
 
     await ctx.send(f"Successfully joined {channel}")
+    sleep(2)
 
 
 @bot.command(pass_context=True, aliases=['l', 'lea'])
@@ -387,7 +388,7 @@ async def hypesquad(ctx, house): # b'\xfc'
     await ctx.message.delete()
     request = requests.Session()
     headers = {
-      'Authorization': usertoken,
+      'Authorization': maintoken,
       'Content-Type': 'application/json',
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) discord/0.0.305 Chrome/69.0.3497.128 Electron/4.0.8 Safari/537.36'
     }    
@@ -459,9 +460,7 @@ async def btc(ctx):
     r = r.json()
     usd = r['USD']
     eur = r['EUR']
-    em = discord.Embed(description=f'USD: `{str(usd)}$`\nEUR: `{str(eur)}€`')
-    em.set_author(name='Bitcoin', icon_url='https://cdn.pixabay.com/photo/2013/12/08/12/12/bitcoin-225079_960_720.png')
-    await ctx.send(embed=em)
+    await ctx.send(f'```USD: {usd}\nEUR: {eur}```')
     
 @bot.command(name='first-message', aliases=['firstmsg', 'fm', 'firstmessage'])
 @commands.check(is_owner)
@@ -476,31 +475,18 @@ async def _first_message(ctx, channel: discord.TextChannel = None):
 @bot.command(aliases=['js'])
 @commands.check(is_owner)
 async def joinserver(ctx, invite_url):
-    code = re.findall(r"(?:https?://)?discord(?:(?:app)?\.com/invite|\.gg)(/?[a-zA-Z0-9]+/?)", invite_url)
-    if not code:
-        return await ctx.send("Invalid invite url")
-    headers = { 'authorization': usertoken }
-    code = code[0].strip('/')
-    join = requests.post('https://discord.com/api/v6/invites/%s' % (code), headers = headers)
-    if not join.status_code == 200:
-        return await ctx.send("Could not join server")
-    else:
-        return await ctx.send("Succesfully joined server!")
+    await bot.join_guild(invite_url)
 
 @bot.command(aliases=['ls'])
 @commands.check(is_owner)
-async def leaveserver(ctx, guild: typing.Union[int, str]=None):
-    if guild is None: # Leave guild the command was used in
-        await ctx.guild.leave()
-    elif isinstance(guild, int):
-        guild = bot.get_guild(guild)
-        await guild.leave()
-    elif isinstance(guild, str):
-        guild = discord.utils.find(lambda g: g.name.lower() == guild.lower(), bot.guilds)
-        if guild is None:
-            return await ctx.send("No guild found by that name")
-        await guild.leave()
-    return await ctx.author.send(f"Successfully left guild **{ctx.guild.name}**")
+async def leaveserver(message):
+    await bot.leave_guild(message)
+    print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}Left server {message.guild.name}")
+
+@bot.command()
+async def online(ctx):
+    test = bot.get_all_members()
+    await ctx.send(test)
 
 @bot.command(name="stealpfp")
 async def stealpfp(ctx, user: discord.User):
@@ -712,10 +698,12 @@ async def giveaway(ctx, time: int, winners: int, *, prize: str):
             print("something went wrong")
             pass
 
-def selfbot(test, maintoken):
+def userbot(test, maintoken):
     bot.run(maintoken)
 
 if __name__ == '__main__':
+    main_thread = Process(target=userbot, args=(0, maintoken,))
+    main_thread.start()
     if sys.platform == "win32":
         toaster = ToastNotifier()
         os.system('color')
@@ -724,5 +712,3 @@ if __name__ == '__main__':
         nitro_sniper_thread.start()
     elif data['nitro_sniper'] == False:
         pass
-    main_thread = Process(target=selfbot, args=(0, maintoken,))
-    main_thread.start()

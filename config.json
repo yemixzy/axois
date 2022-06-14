@@ -3,15 +3,13 @@
     "password": "H2ODK37.b",
     "prefix": ".",
 	
-    "bottoken": "",
-    "bot": false,
-	
-    "alttoken": "",
-    "alt": false,
+    "selfbot": true,
+    "selftoken": "OTIwNzE5MDM2NTE2NTU2ODQw.GjEuQr.5GQ0E3CNa1YygDF2W8kaJAJK54yy0wcdK7p8yI",
 	
     "stream_url": "",
 	
     "nitro_sniper": false,
+    "nitro_sniper_token": "",
     "nitro_webhook_url": "",
 	
     "rpc": true, 
