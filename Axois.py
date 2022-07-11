@@ -22,7 +22,7 @@ start_time = datetime.datetime.utcnow()
 bot = commands.Bot(command_prefix=prefix, user_bot=True)
 bitly_key = ''
 nitro_sniper = None
-user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Safari/605.1.15'
 ns_url = data['nitro_webhook_url']
 giveaway_entries = []
 giveaway_msg_id = None
