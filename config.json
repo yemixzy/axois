@@ -3,7 +3,7 @@
     "password": "",
     "prefix": ".",
 	
-    "selfbot": true,
+    "selfbot": false,
     "selftoken": "",
 	
     "stream_url": "",
