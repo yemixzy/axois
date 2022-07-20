@@ -19,7 +19,7 @@ discord_password = data['password']
 prefix = data['prefix']
 stream_url = data['stream_url']
 start_time = datetime.datetime.utcnow()
-bot = commands.Bot(command_prefix=prefix, user_bot=True)
+axois = commands.Bot(command_prefix=prefix, user_bot=True)
 bitly_key = ''
 nitro_sniper = None
 user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Safari/605.1.15'
@@ -86,27 +86,27 @@ def drone_startup(pos, alttoken):
 
     drone.run(alttoken)
 
-@bot.event
+@axois.event
 async def on_ready():
     os.system('')
-    print("Logged in as: " + bot.user.name + "#" + bot.user.discriminator + "\n")
+    print("Logged in as: " + axois.user.name + "#" + axois.user.discriminator + "\n")
 
-@bot.command()
+@axois.command()
 async def about(ctx):
-    embed = discord.Embed(title="About the bot", description="Its a little Selfbot", color=0x00ffff)
+    embed = discord.Embed(title="About the axois", description="Its a little Selfaxois", color=0x00ffff)
     embed.add_field(name="Created with:", value="discord.py-self", inline=False)
     embed.add_field(name="Created by:", value="axois#0001", inline=False)
     await ctx.channel.send(embed=embed)
 
-@bot.command()
+@axois.command()
 async def memberboost(ctx):
     await ctx.send('https://discord.gg/3Ynqwcanjr')
 
-@bot.command(pass_context=True, aliases=['j', 'joi'])
+@axois.command(pass_context=True, aliases=['j', 'joi'])
 @commands.check(is_owner)
 async def join(ctx):
     channel = ctx.message.author.voice.channel
-    voice = get(bot.voice_clients, guild=ctx.guild)
+    voice = get(axois.voice_clients, guild=ctx.guild)
 
     if voice and voice.is_connected():
         await voice.move_to(channel)
@@ -119,28 +119,28 @@ async def join(ctx):
         await voice.move_to(channel)
     else:
         voice = await channel.connect()
-        print(f"The bot has connected to {channel}\n")
+        print(f"The axois has connected to {channel}\n")
 
     await ctx.send(f"Successfully joined {channel}")
     sleep(2)
 
 
-@bot.command(pass_context=True, aliases=['l', 'lea'])
+@axois.command(pass_context=True, aliases=['l', 'lea'])
 @commands.check(is_owner)
 async def leave(ctx):
     channel = ctx.message.author.voice.channel
-    voice = get(bot.voice_clients, guild=ctx.guild)
+    voice = get(axois.voice_clients, guild=ctx.guild)
 
     if voice and voice.is_connected():
         await voice.disconnect()
-        print(f"The bot has left {channel}")
+        print(f"The axois has left {channel}")
         await ctx.send(f"Successfully leaved {channel}")
     else:
-        print("Bot was told to leave voice channel, but was not in one")
+        print("axois was told to leave voice channel, but was not in one")
         await ctx.send("Don't think I am in a voice channel")
 
 
-@bot.command(pass_context=True, aliases=['p', 'pla'])
+@axois.command(pass_context=True, aliases=['p', 'pla'])
 @commands.check(is_owner)
 async def play(ctx, *, url: str):
 
@@ -156,7 +156,7 @@ async def play(ctx, *, url: str):
 
     await ctx.send("Loading...")
 
-    voice = get(bot.voice_clients, guild=ctx.guild)
+    voice = get(axois.voice_clients, guild=ctx.guild)
 
     ydl_opts = {
         'format': 'bestaudio/best',
@@ -186,65 +186,65 @@ async def play(ctx, *, url: str):
     #await ctx.send(f"Playing: {nname[0]}")
     print("playing\n")
     
-@bot.command(pass_context=True, aliases=['tc'])
+@axois.command(pass_context=True, aliases=['tc'])
 @commands.check(is_owner)
 async def create_tc(ctx, message):
     guild = ctx.message.guild
     await guild.create_text_channel(message)
     print("Successfully text channel created!")
 
-@bot.command(pass_context=True, aliases=['vc'])
+@axois.command(pass_context=True, aliases=['vc'])
 @commands.check(is_owner)
 async def create_vc(ctx, message):
     guild = ctx.message.guild
     await guild.create_voice_channel(message)
     print("Successfully voice channel created!")
     
-@bot.command(pass_context=True)
+@axois.command(pass_context=True)
 @commands.check(is_owner)
 async def stream(ctx, *, message):
     stream = discord.Streaming(
         name=message,
         url=stream_url, 
     )
-    await bot.change_presence(activity=stream)
+    await axois.change_presence(activity=stream)
     print("Activity successfully set to stream")
     
-@bot.command(pass_context=True)
+@axois.command(pass_context=True)
 @commands.check(is_owner)
 async def game(ctx, *, message):
     game = discord.Game(
         name=message
     )
-    await bot.change_presence(activity=game)
+    await axois.change_presence(activity=game)
     print("Activity successfully set to playing")
     
-@bot.command(pass_context=True)
+@axois.command(pass_context=True)
 @commands.check(is_owner)
 async def listening(ctx, *, message):
-    await bot.change_presence(
+    await axois.change_presence(
         activity=discord.Activity(
             type=discord.ActivityType.listening, 
             name=message, 
         ))
     print("Activity successfully set to listening")
        
-@bot.command(pass_context=True)
+@axois.command(pass_context=True)
 @commands.check(is_owner)
 async def watching(ctx, *, message):
-    await bot.change_presence(
+    await axois.change_presence(
         activity=discord.Activity(
             type=discord.ActivityType.watching, 
             name=message
         ))
     print("Activity successfully set to watching")
     
-@bot.command()
+@axois.command()
 @commands.check(is_owner)
 async def status(ctx):
     await ctx.send('Alles läuft gut und ich bin einsatzbereit!')
 
-@bot.command()
+@axois.command()
 @commands.check(is_owner)
 async def lesbian(ctx):
     r = requests.get("https://nekos.life/api/v2/img/les")
@@ -253,7 +253,7 @@ async def lesbian(ctx):
     em.set_image(url=res['url'])
     await ctx.send(embed=em)
 
-@bot.command()
+@axois.command()
 @commands.check(is_owner)
 async def cum(ctx):
     r = requests.get("https://nekos.life/api/v2/img/cum")
@@ -262,7 +262,7 @@ async def cum(ctx):
     em.set_image(url=res['url'])
     await ctx.send(embed=em) 
 
-@bot.command()
+@axois.command()
 @commands.check(is_owner)
 async def anal(ctx):
     r = requests.get("https://nekos.life/api/v2/img/anal")
@@ -271,7 +271,7 @@ async def anal(ctx):
     em.set_image(url=res['url'])
     await ctx.send(embed=em) 
     
-@bot.command()
+@axois.command()
 @commands.check(is_owner)
 async def boobs(ctx):
     r = requests.get("https://nekos.life/api/v2/img/boobs")
@@ -280,7 +280,7 @@ async def boobs(ctx):
     em.set_image(url=res['url'])
     await ctx.send(embed=em) 
 
-@bot.command()
+@axois.command()
 @commands.check(is_owner)
 async def wallpaper(ctx):
     r = requests.get("https://nekos.life/api/v2/img/wallpaper")
@@ -289,20 +289,20 @@ async def wallpaper(ctx):
     em.set_image(url=res['url'])
     await ctx.send(embed=em)   
     
-@bot.command()
+@axois.command()
 @commands.check(is_owner)
 async def uptime(ctx):
     uptime = datetime.datetime.utcnow() - start_time
     uptime = str(uptime).split('.')[0]
     await ctx.send(f'`'+uptime+'`') 
     
-@bot.command()
+@axois.command()
 @commands.check(is_owner)
 async def spam(ctx, amount: int, *, message):   
     for _i in range(amount):
         await ctx.send(message)
 
-@bot.command(aliases=['shorteen'])
+@axois.command(aliases=['shorteen'])
 @commands.check(is_owner)
 async def bitly(ctx, *, link):
     if bitly_key == '':
@@ -322,7 +322,7 @@ async def bitly(ctx, *, link):
         else:
             print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}{req.text}"+Fore.RESET)
     
-@bot.command(name='view', aliases=['view-bot', 'viewbot'])
+@axois.command(name='view', aliases=['view-axois', 'viewaxois'])
 @commands.check(is_owner)
 async def _ebay_view(ctx, url, views: int):
     start_time = datetime.datetime.now()
@@ -335,12 +335,12 @@ async def _ebay_view(ctx, url, views: int):
             requests.get(url, headers=headers)
     EbayViewer(url, views)
     elapsed_time = datetime.datetime.now() - start_time
-    em = discord.Embed(title='ViewBot')
+    em = discord.Embed(title='Viewaxois')
     em.add_field(name='Views sent', value=views, inline=False)
     em.add_field(name='Elapsed time', value=elapsed_time, inline=False)
     await ctx.send(embed=em)
     
-@bot.command(aliases=['pfp', 'avatar'])
+@axois.command(aliases=['pfp', 'avatar'])
 @commands.check(is_owner)
 async def av(ctx, *, user: discord.Member=None):
     format = "gif"
@@ -354,7 +354,7 @@ async def av(ctx, *, user: discord.Member=None):
     with io.BytesIO(image) as file:
         await ctx.send(file = discord.File(file, f"Avatar.{format}"))
         
-@bot.command(aliases=['ri', 'role'])
+@axois.command(aliases=['ri', 'role'])
 @commands.check(is_owner)
 async def roleinfo(ctx, *, role: discord.Role): # b'\xfc'
     await ctx.message.delete()
@@ -382,7 +382,7 @@ async def roleinfo(ctx, *, role: discord.Role): # b'\xfc'
     em.add_field(name='Creation Date', value=created_on)
     await ctx.send(embed=em)
     
-@bot.command(aliases=['changehypesquad'])
+@axois.command(aliases=['changehypesquad'])
 @commands.check(is_owner)
 async def hypesquad(ctx, house): # b'\xfc'
     await ctx.message.delete()
@@ -406,11 +406,11 @@ async def hypesquad(ctx, house): # b'\xfc'
     except Exception as e:
         print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}{e}"+Fore.RESET)
         
-@bot.command()
+@axois.command()
 @commands.check(is_owner)
 async def dm(ctx, user : discord.Member, *, message):
-    user = bot.get_user(user.id)
-    if ctx.author.id == bot.user.id:
+    user = axois.get_user(user.id)
+    if ctx.author.id == axois.user.id:
         return
     else:
         try:
@@ -418,16 +418,16 @@ async def dm(ctx, user : discord.Member, *, message):
         except:
             pass
             
-@bot.command()
+@axois.command()
 @commands.check(is_owner)
 async def purge(ctx, amount: int):
-    async for message in ctx.message.channel.history(limit=amount).filter(lambda m: m.author == bot.user).map(lambda m: m):
+    async for message in ctx.message.channel.history(limit=amount).filter(lambda m: m.author == axois.user).map(lambda m: m):
         try:
            await message.delete()
         except:
             pass
             
-@bot.command()
+@axois.command()
 @commands.check(is_owner)
 async def purgeall(ctx, amount: int):
     async for message in ctx.message.channel.history(limit=amount):
@@ -436,16 +436,16 @@ async def purgeall(ctx, amount: int):
         except:
             pass
 
-@bot.command()
+@axois.command()
 @commands.check(is_owner)
 async def server(ctx):
     print('Servers connected to:')
     await ctx.send('Servers connected to: ')
-    for server in bot.guilds:
+    for server in axois.guilds:
         print(server.name)
         await ctx.send(server.name)
 
-@bot.command()
+@axois.command()
 @commands.check(is_owner)
 async def ascii(ctx, *, text):
     r = requests.get(f'http://artii.herokuapp.com/make?text={urllib.parse.quote_plus(text)}').text
@@ -453,7 +453,7 @@ async def ascii(ctx, *, text):
         return
     await ctx.send(f"```{r}```")
 
-@bot.command(aliases=['bitcoin'])
+@axois.command(aliases=['bitcoin'])
 @commands.check(is_owner)
 async def btc(ctx):
     r = requests.get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,EUR')
@@ -462,7 +462,7 @@ async def btc(ctx):
     eur = r['EUR']
     await ctx.send(f'```USD: {usd}\nEUR: {eur}```')
     
-@bot.command(name='first-message', aliases=['firstmsg', 'fm', 'firstmessage'])
+@axois.command(name='first-message', aliases=['firstmsg', 'fm', 'firstmessage'])
 @commands.check(is_owner)
 async def _first_message(ctx, channel: discord.TextChannel = None): 
     if channel is None:
@@ -472,28 +472,28 @@ async def _first_message(ctx, channel: discord.TextChannel = None):
     embed.add_field(name="First Message", value=f"[Jump]({first_message.jump_url})")
     await ctx.send(embed=embed)
 
-@bot.command(aliases=['js'])
+@axois.command(aliases=['js'])
 @commands.check(is_owner)
 async def joinserver(ctx, invite_url):
-    await bot.join_guild(invite_url)
+    await axois.join_guild(invite_url)
 
-@bot.command(aliases=['ls'])
+@axois.command(aliases=['ls'])
 @commands.check(is_owner)
 async def leaveserver(message):
-    await bot.leave_guild(message)
+    await axois.leave_guild(message)
     print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}Left server {message.guild.name}")
 
-@bot.command()
+@axois.command()
 async def online(ctx):
-    test = bot.get_all_members()
+    test = axois.get_all_members()
     await ctx.send(test)
 
-@bot.command(name="stealpfp")
+@axois.command(name="stealpfp")
 async def stealpfp(ctx, user: discord.User):
-        await bot.user.edit(avatar = bytes(requests.get(user.avatar_url).content), password = discord_password)
+        await axois.user.edit(avatar = bytes(requests.get(user.avatar_url).content), password = discord_password)
         await ctx.send('Profile Picture was set.')
 
-@bot.command(name="tokeninfo")
+@axois.command(name="tokeninfo")
 async def tokeninfo(ctx, token):   
     try:
         await ctx.message.delete
@@ -651,7 +651,7 @@ async def tokeninfo(ctx, token):
     else:
         print(f'Usage: python {sys.argv[0]} [token]')
 
-@bot.command(name="giveaway")
+@axois.command(name="giveaway")
 async def giveaway(ctx, time: int, winners: int, *, prize: str):
         global giveaway_msg_id
         try:
@@ -666,7 +666,7 @@ async def giveaway(ctx, time: int, winners: int, *, prize: str):
             giveaway_msg_id = msg.id
             await msg.add_reaction('🎉')
             await asyncio.sleep(time)
-            giveaway_entries.pop(giveaway_entries.index(bot.user.id))
+            giveaway_entries.pop(giveaway_entries.index(axois.user.id))
             try:
                 if winners == 1:
                     winner = random.choice(giveaway_entries)
@@ -698,11 +698,11 @@ async def giveaway(ctx, time: int, winners: int, *, prize: str):
             print("something went wrong")
             pass
 
-def userbot(test, maintoken):
-    bot.run(maintoken)
+def useraxois(test, maintoken):
+    axois.run(maintoken)
 
 if __name__ == '__main__':
-    main_thread = Process(target=userbot, args=(0, maintoken,))
+    main_thread = Process(target=useraxois, args=(0, maintoken,))
     main_thread.start()
     if sys.platform == "win32":
         toaster = ToastNotifier()
