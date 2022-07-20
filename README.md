@@ -10,7 +10,7 @@
 - [Releases](https://github.com/yemixzy/axois/releases)
 
 ## Integrate Checks
-- [Click me!](https://gist.githubusercontent.com/yemix/9088d9e2f01fdf8180b179ea3c4cbc99/raw/acba58666659a26c9fa42a4fb94182af38ee83de/pueblo-ui-selfbot.json)
+- [Click me!](https://gist.githubusercontent.com/yemix/9088d9e2f01fdf8180b179ea3c4cbc99/raw/e07975c76346cee624bea8af6321093d81ce1e14/yemix-selfbot.json)
 
 ## About
 - Your account can be banned.
